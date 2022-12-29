@@ -27,6 +27,6 @@
     height: 125px;
     background-color: rgba(0, 0, 0, 0.137);
     border: 4px, black, solid;
-    display: flex;
-    align-self: flex-end;
+    position: absolute;
+    top: 800px;
   }
