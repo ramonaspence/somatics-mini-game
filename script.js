@@ -1,4 +1,5 @@
-const spell = {}
+
+const spell = {'a': 1000, 's':2000, 'd':3000, 'f':4000,}
 const notes = []
 
 class Timer {
@@ -38,9 +39,14 @@ function initializeNotes() {
         note.style.top = startY + 'px';
         document.getElementById("notes").appendChild(note);
         notes.push(note)
-      }
-      console.log(notes)
-      return notes
+    // }
+
+}
+
+function initializeNotes(spell, start) {
+    for (const [key, value] of Object.entries(spell)) {
+        setTimeout(function(){addNote(key)}, value)
+    }
 }
 
 function updateGameState() {
