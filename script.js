@@ -61,4 +61,6 @@ function updateGameState() {
     }   
 }
 
+document.addEventListener('keydown', function(event) {onKeyPress(event)});
+
 document.getElementById("startButton").addEventListener('click', function(){initializeGame(spell)}, false);
