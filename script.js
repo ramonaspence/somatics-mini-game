@@ -1,4 +1,5 @@
 
+const keyCodes = {'a': 65, 's': 83, 'd': 68, 'f': 70}
 const spell = {'a': 1000, 's':2000, 'd':3000, 'f':4000,}
 const notes = []
 
