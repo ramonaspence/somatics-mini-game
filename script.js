@@ -15,6 +15,21 @@ function judgeScore() {
     // decides if spell succeeded or failed based on score
 }
 
+function checkPosition(key) {
+    var targetY = document.getElementById("target").style.top;
+
+    var noteY = document.getElementById(key + "Note").style.top;
+
+    if (noteY === targetY) {
+        console.log("isHit")
+        isHit();
+    }
+    else if (noteY != targetY) {
+        console.log("isMiss")
+        isMiss();
+    }
+}
+
 function initializeGame(spell) {
     // initalize notes with spell
     initializeNotes(spell);
@@ -28,6 +43,7 @@ function addNote(key) {
     const noteSpacing = 10;
     const startY = 0;
     const note = document.createElement('div');
+    note.id = key + "Note"
     note.style.width = column + 'px';
     note.style.height = noteSize + 'px';
     note.style.backgroundColor = 'lavender';
