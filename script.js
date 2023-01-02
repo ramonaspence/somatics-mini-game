@@ -60,20 +60,8 @@ function initializeNotes(spell, start) {
 }
 
 function onKeyPress(event) {
-    if (event.keyCode === keyCodes['a']) {
-        checkPosition('a');
-    }
-
-    if (event.keyCode === keyCodes['s']) {
-
-    }
-
-    if (event.keyCode === keyCodes['d']) {
-        
-    }
-
-    if (event.keyCode === keyCodes['f']) {
-        
+    if (event.keyCode === keyCodes[event.key]) {
+        checkPosition(event.key)
     }
 }
 
