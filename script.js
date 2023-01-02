@@ -33,8 +33,19 @@ function checkPosition(key) {
 function initializeGame(spell) {
     // initalize notes with spell
     initializeNotes(spell);
+    // add target zone
+    addTarget();
     // run game, updating state thousandth of a millisecond (??)
     setInterval(updateGameState, 1)
+}
+
+function addTarget() {
+    target = document.createElement("div");
+    target.id = "target";
+    target.style.width = 500 + "px";
+    target.style.height = 125 + "px";
+    target.style.top = 700 + "px";
+    document.getElementById("game").appendChild(target);
 }
 
 function addNote(key) {
