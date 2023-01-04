@@ -20,7 +20,7 @@ function isHit() {
 
 function isMiss(key) {
     score -= 1;
-    document.documentElementById(key).removeChild();
+    document.getElementById(key + "note").removeChild();
 }
 
 function judgeScore() {
@@ -31,7 +31,7 @@ function checkPosition(key) {
     var targetY = parseInt(document.getElementById("target").style.top) - 5;
     var targetY2 = parseInt(document.getElementById("target").style.top) + 5;
 
-    var noteY = parseInt(document.getElementById(key + "Note").style.top);
+    var noteY = parseInt(document.getElementById(key + "note").style.top);
     
     if (noteY > targetY && noteY < targetY2) {
         isHit();
@@ -66,7 +66,7 @@ function addNote(key) {
     const noteSpacing = 10;
     const startY = 0;
     const note = document.createElement('div');
-    note.id = key + "Note"
+    note.id = key + "note"
     note.style.width = column + 'px';
     note.style.height = noteSize + 'px';
     note.style.backgroundColor = 'lavender';
