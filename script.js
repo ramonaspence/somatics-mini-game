@@ -3,8 +3,8 @@ const keyCodes = {
     'a': 65, 's': 83, 'd': 68, 'f': 70
 }
 const spell = {
-    passing_score: 4,
-    notes: {
+    'passing_score': 4,
+    'notes': {
         'a': 1000, 
         's':2000, 
         'd':3000, 
@@ -77,7 +77,7 @@ function addNote(key) {
 }
 
 function initializeNotes(spell, start) {
-    for (const [key, value] of Object.entries(spell)) {
+    for (const [key, value] of Object.entries(spell['notes'])) {
         setTimeout(function(){addNote(key)}, value)
     }
 }
