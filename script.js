@@ -1,7 +1,18 @@
 
-const keyCodes = {'a': 65, 's': 83, 'd': 68, 'f': 70}
-const spell = {'a': 1000, 's':2000, 'd':3000, 'f':4000,}
+const keyCodes = {
+    'a': 65, 's': 83, 'd': 68, 'f': 70
+}
+const spell = {
+    passing_score: 4,
+    notes: {
+        'a': 1000, 
+        's':2000, 
+        'd':3000, 
+        'f':4000,
+    },
+}
 const notes = []
+var score = 0;
 
 function isHit() {
     score += 1;
@@ -36,7 +47,7 @@ function initializeGame(spell) {
     initializeNotes(spell);
     // add target zone
     addTarget();
-    // run game, updating state thousandth of a millisecond (??)
+    // run game, updating state every millisecond
     setInterval(updateGameState, 1)
 }
 
