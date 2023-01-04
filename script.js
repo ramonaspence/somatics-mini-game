@@ -2,6 +2,7 @@
 const keyCodes = {
     'a': 65, 's': 83, 'd': 68, 'f': 70
 }
+
 const spell = {
     'passing_score': 4,
     'notes': {
@@ -14,17 +15,21 @@ const spell = {
 const notes = []
 var score = 0;
 
-function isHit() {
+function isHit(key) {
     score += 1;
 }
 
 function isMiss(key) {
     score -= 1;
-    document.getElementById(key + "note").removeChild();
+    var note = document.getElementById(key + "note")
+    document.getElementById(key).removeChild(note);
 }
 
 function judgeScore() {
     // decides if spell succeeded or failed based on score
+    if (score >= spell['passing_score']) {
+        // you win!
+    }
 }
 
 function checkPosition(key) {
@@ -34,7 +39,7 @@ function checkPosition(key) {
     var noteY = parseInt(document.getElementById(key + "note").style.top);
     
     if (noteY > targetY && noteY < targetY2) {
-        isHit();
+        isHit(key);
     }
 
     else if (noteY < targetY || noteY > targetY2) {
@@ -103,7 +108,7 @@ function updateGameState() {
         i--;
         note.remove();
         }
-    }   
+    }
 }
 
 document.addEventListener('keydown', function(event) {onKeyPress(event)});
