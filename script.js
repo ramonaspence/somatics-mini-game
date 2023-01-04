@@ -4,11 +4,12 @@ const spell = {'a': 1000, 's':2000, 'd':3000, 'f':4000,}
 const notes = []
 
 function isHit() {
-    // adds to score
+    score += 1;
 }
 
-function isMiss() {
-    // deducts from score
+function isMiss(key) {
+    score -= 1;
+    document.documentElementById(key).removeChild();
 }
 
 function judgeScore() {
@@ -16,17 +17,17 @@ function judgeScore() {
 }
 
 function checkPosition(key) {
-    var targetY = document.getElementById("target").style.top;
+    var targetY = parseInt(document.getElementById("target").style.top) - 5;
+    var targetY2 = parseInt(document.getElementById("target").style.top) + 5;
 
-    var noteY = document.getElementById(key + "Note").style.top;
-
-    if (noteY === targetY) {
-        console.log("isHit")
+    var noteY = parseInt(document.getElementById(key + "Note").style.top);
+    
+    if (noteY > targetY && noteY < targetY2) {
         isHit();
     }
-    else if (noteY != targetY) {
-        console.log("isMiss")
-        isMiss();
+
+    else if (noteY < targetY || noteY > targetY2) {
+        isMiss(key);
     }
 }
 
