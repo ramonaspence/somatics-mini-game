@@ -3,6 +3,7 @@ const keyCodes = {
     'a': 65, 's': 83, 'd': 68, 'f': 70
 }
 
+// notes spawn after the listed amount of time in milliseconds
 const spell = {
     'passing_score': 4,
     'notes': {
@@ -18,6 +19,7 @@ var score = 0;
 // show score variable in window
 document.getElementById("score").innerHTML = score;
 
+
 function isHit(key) {
     score += 1;
 }
@@ -29,13 +31,15 @@ function isMiss(key) {
 }
 
 function judgeScore() {
-    // decides if spell succeeded or failed based on score
+    // Decides if spell succeeded or failed based on score
     if (score >= spell['passing_score']) {
         // you win!
     }
 }
 
 function checkPosition(key) {
+    /* Check the position of a note against the position of the 
+        target area to determine if the note was hit successfully. */
     var targetY = parseInt(document.getElementById("target").style.top) - 5;
     var targetY2 = parseInt(document.getElementById("target").style.top) + 5;
 
@@ -51,19 +55,23 @@ function checkPosition(key) {
 }
 
 function initializeGame(spell) {
-    // initalize notes with spell
+    // Initalize notes with spell
     initializeNotes(spell);
-    // add target zone
+    // Add target zone
     addTarget();
-    // run game, updating state every millisecond
+    // Run game, updating state every millisecond
     setInterval(updateGameState, 1);
 }
 
 function addTarget() {
+    /* Add target when game starts. In theory, the target area could be different for different spells. It could also be smaller or bigger based on a difficulty setting. */
+
+
     target = document.createElement("div");
     target.id = "target";
     target.style.width = 500 + "px";
     target.style.height = 125 + "px";
+    // Top property will be used to check the target area's position
     target.style.top = 500 + "px";
     document.getElementById("game").appendChild(target);
 }
@@ -85,19 +93,21 @@ function addNote(key) {
 }
 
 function initializeNotes(spell, start) {
+    // Loops through spell object to spawn notes
     for (const [key, value] of Object.entries(spell['notes'])) {
         setTimeout(function(){addNote(key)}, value);
     }
 }
 
 function onKeyPress(event) {
+    // Check which key has been pressed and pass that key to the checkPosition function
     if (event.keyCode === keyCodes[event.key]) {
         checkPosition(event.key);
     }
 }
 
 function updateGameState() {
-    // move notes down game area
+    // Move notes down game area
     for (let i = 0; i < notes.length; i++) {
         let note = notes[i];
         let y = parseInt(note.style.top);
@@ -114,6 +124,8 @@ function updateGameState() {
     }
 }
 
+// Listen for any keypress
 document.addEventListener('keydown', function(event) {onKeyPress(event)});
 
+// Start button initializes the game
 document.getElementById("startButton").addEventListener('click', function(){initializeGame(spell)}, false);
