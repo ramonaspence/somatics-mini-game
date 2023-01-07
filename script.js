@@ -22,10 +22,14 @@ document.getElementById("score").innerHTML = score;
 
 function isHit(key) {
     score += 1;
+
+    // 
 }
 
 function isMiss(key) {
     score -= 1;
+
+    // if key pressed too soon, remove note
     var note = document.getElementById(key + "note");
     document.getElementById(key).removeChild(note);
 }
@@ -77,6 +81,7 @@ function addTarget() {
 }
 
 function addNote(key) {
+    // add individual note and set css properties
     const column = 125;
     const noteSize = 125;
     const noteSpacing = 10;
