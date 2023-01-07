@@ -22,12 +22,12 @@ document.getElementById("score").innerHTML = score;
 
 function isHit(key) {
     score += 1;
+    document.getElementById("score").innerHTML = score;
 
-    // 
 }
 
 function isMiss(key) {
-    score -= 1;
+    // score -= 1;
 
     // if key pressed too soon, remove note
     var note = document.getElementById(key + "note");
