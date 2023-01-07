@@ -44,8 +44,8 @@ function judgeScore() {
 function checkPosition(key) {
     /* Check the position of a note against the position of the 
         target area to determine if the note was hit successfully. */
-    var targetY = parseInt(document.getElementById("target").style.top) - 5;
-    var targetY2 = parseInt(document.getElementById("target").style.top) + 5;
+    var targetY = parseInt(document.getElementById("target").style.top) - 15;
+    var targetY2 = parseInt(document.getElementById("target").style.top) + 15;
 
     var noteY = parseInt(document.getElementById(key + "note").style.top);
 
