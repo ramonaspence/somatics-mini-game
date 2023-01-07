@@ -1,63 +1,76 @@
- /* CSS code for styling the game */
- #game {
-    display: flex;
-    width: 500px;
-    height: 800px;
-    background-color: rgb(204, 202, 202);
-    position: relative;
-    
-    
-  }
+/* CSS code for styling the game */
+body {
+  display: flex;
+  flex-direction: row;
+}
 
-  #startButton {
-    display: block;
-    width: 50px;
-    height: 50px;
-    background-color: green;
+#game {
+  display: flex;
+  width: 500px;
+  height: 100vh;
+  background-color: rgb(204, 202, 202);
+  position: relative;
+}
 
-  }
+.ui {
+  display: flex;
 
-  #score {
-    position: absolute;
-    top: 0;
-    right: 0;
-    font-size: 20px;
-  }
+}
 
-  #a {
-    background-color: rgba(0, 0, 255, 0.323);
-    height: 925px;
-    width: 125px;
-  }
-  #s {
-    background-color: rgba(255, 60, 0, 0.384);
-    height: 925px;
-    width: 125px;
-  }
-  #d {
-    background-color: rgba(225, 255, 0, 0.412);
-    height: 925px;
-    width: 125px;
-  }
-  #f {
-    background-color: rgba(4, 255, 0, 0.398);
-    height: 925px;
-    width: 125px;
-  }
+.btn-text {
+  font-size: 2rem;
+  color:rgb(204, 202, 202);
+}
 
-  .note {
-    width: 100px;
-    height: 50px;
-    background-color: rgb(132, 0, 255);
-    position: absolute;
-    transform: translateX(+25%)
-  }
-  
-  #target {
-	  width: 500px;
-    height: 125px;
-    background-color: rgba(0, 0, 0, 0.137);
-    border-top: 4px, white, solid;
-    position: absolute;
-    top: 700px;
-  }
+#startButton {
+  width: 7rem;
+  height: 4rem;
+  background-color: green;
+}
+
+#score {
+  display: inline;
+  width: 7rem;
+  height: 4rem;
+  padding: 1rem 2rem;
+  font-size: 2rem;
+  color: black;
+  border: black, solid, 2px;
+}
+
+#a {
+  background-color: rgba(0, 0, 255, 0.323);
+  height: inherit;
+  width: 125px;
+}
+#s {
+  background-color: rgba(255, 60, 0, 0.384);
+  height: inherit;
+  width: 125px;
+}
+#d {
+  background-color: rgba(225, 255, 0, 0.412);
+  height: inherit;
+  width: 125px;
+}
+#f {
+  background-color: rgba(4, 255, 0, 0.398);
+  height: inherit;
+  width: 125px;
+}
+
+.note {
+  width: 100px;
+  height: 50px;
+  background-color: rgb(132, 0, 255);
+  position: absolute;
+  transform: translateX(+25%)
+}
+
+#target {
+  width: 500px;
+  height: 125px;
+  background-color: rgba(0, 0, 0, 0.137);
+  position: absolute;
+  top: 100vh;
+}
